@@ -1,0 +1,39 @@
+nav {
+    background-color: var(--primary);
+    height: 70px;
+    color: #e6e8e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+
+    ul {
+        display: flex;
+        justify-content: space-evenly;
+
+        li {
+            list-style: none;
+            padding: 0 10px;
+        }
+    }
+}
+
+.side-nav-menu {
+    width: 0;
+    height: 100%;
+    a {
+        display: none;
+        color: red;
+    }
+}
+
+.side-nav-active {
+    z-index: 10;
+    background-color: lightgray;
+    width: 200px;
+    height: 100%;
+    transition: 0.5s;
+    a {
+        display: block;
+    }
+}

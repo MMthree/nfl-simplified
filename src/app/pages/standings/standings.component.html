@@ -1,0 +1,70 @@
+<div class="container">
+    <div>
+        <select (change)="yearSelecter($event)" name="year">
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+        </select>
+
+        <select (change)="seasonTypeSelector($event)" name="season-type">
+            <option value="REG">REG</option>
+            <option value="PRE">PRE</option>
+        </select>
+    </div>
+
+    <div>
+        <button 
+            name="division"
+            (click)="handleStandingsChange($event)" 
+            routerLink="/standings/division"
+        >
+            Division
+        </button>
+        <button 
+            name="conference"
+            (click)="handleStandingsChange($event)" 
+            routerLink="/standings/conference"
+        >
+            Conference
+        </button>
+        <button 
+            name="league"
+            (click)="handleStandingsChange($event)" 
+            routerLink="/standings/league"
+        >
+            League
+        </button>
+    </div>
+
+    <div class="card-grid" *ngIf="standingsType === 'division' || !standingsType">
+        <app-standings-card    
+            *ngFor="let divs of divisions"
+            [title]="divs[0].team.divisionAbbr"
+        >  
+            <div *ngFor="let teams of divs">
+                <p>{{teams.team.nick}}</p>
+            </div>
+        </app-standings-card>
+    </div>
+
+    <ng-template [ngIf]="standingsType === 'conference'">
+        <app-standings-card    
+            *ngFor="let conf of conferences"
+            [title]="conf[0].team.conferenceAbbr"
+        >  
+            <div *ngFor="let teams of conf">
+                <p>{{teams.team.nick}}</p>
+            </div>
+        </app-standings-card>
+    </ng-template>
+
+    <ng-template [ngIf]="standingsType === 'league'">
+        <app-standings-card    
+            [title]="standingsType"
+        >  
+            <div *ngFor="let t of overallStandings">
+                <p>{{t.team.nick}}</p>
+            </div>
+        </app-standings-card>
+    </ng-template>
+</div>
