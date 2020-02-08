@@ -39,7 +39,8 @@
     <div class="card-grid" *ngIf="standingsType === 'division' || !standingsType">
         <app-standings-card    
             *ngFor="let divs of divisions"
-            [title]="divs[0].team.divisionAbbr"
+            [title]="addFtoDivisionAbbr(divs[0].team.divisionAbbr)"
+            [teams]="divs"
         >  
             <div *ngFor="let teams of divs">
                 <p>{{teams.team.nick}}</p>
@@ -47,24 +48,26 @@
         </app-standings-card>
     </div>
 
-    <ng-template [ngIf]="standingsType === 'conference'">
+    <div class="card-grid" *ngIf="standingsType === 'conference'">
         <app-standings-card    
             *ngFor="let conf of conferences"
             [title]="conf[0].team.conferenceAbbr"
+            [teams]="conf"
         >  
             <div *ngFor="let teams of conf">
                 <p>{{teams.team.nick}}</p>
             </div>
         </app-standings-card>
-    </ng-template>
+    </div>
 
-    <ng-template [ngIf]="standingsType === 'league'">
+    <div class='card-grid-single' *ngIf="standingsType === 'league'">
         <app-standings-card    
             [title]="standingsType"
+            [teams]="overallStandings"
         >  
             <div *ngFor="let t of overallStandings">
                 <p>{{t.team.nick}}</p>
             </div>
         </app-standings-card>
-    </ng-template>
+    </div>
 </div>

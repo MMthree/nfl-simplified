@@ -1,5 +1,23 @@
-<mat-toolbar color="primary">
-    <mat-toolbar-row>
-      <span>NFL Simplified</span>
-    </mat-toolbar-row>
-  </mat-toolbar>
+<mat-sidenav-container>
+
+  <mat-sidenav #sidenav mode="push" [(opened)]="opened">
+    <button (click)="sidenav.close()">Close</button>
+    <p routerLink='/'>home</p>
+    <p routerLink='/standings'>standings</p>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <div class='nav-bar'>
+      <div class='nav-logo'>
+        <p>NFL SIMPLIFIED</p>
+      </div>
+      <div class="nav-burger" (click)="sidenav.open()">
+        <div class="bar1"></div>
+        <div class="bar2"></div>
+        <div class="bar3"></div>
+      </div>
+    </div>
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

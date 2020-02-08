@@ -1,5 +1,21 @@
 <div class='standing-card'>
     <p class='title'>{{ title }}</p>
-    <div class='title-stripe'></div>
-    <ng-content></ng-content>
+    <div [ngClass]="title.split('')[0] === 'A' ? 'afc-stripe' : 'nfc-stripe'"></div>
+    <div class='team-grid'>
+        <p id="t-name"></p>
+        <p class='grid-label'>W</p>
+        <p class='grid-label'>L</p>
+        <p class='grid-label'>T</p>
+        <p class='grid-label'>DIV</p>
+        <p class='grid-label'>CONF</p>
+
+        <ng-container *ngFor="let t of teams">
+            <p class="text-bold">{{t.team.nick}}</p>
+            <p class='text-bold grid-data'>{{t.standing.overallWins}}</p>
+            <p class='text-bold grid-data'>{{t.standing.overallLosses}}</p>
+            <p class='text-bold grid-data'>{{t.standing.overallTies}}</p>
+            <p class='text-bold grid-data'>{{ winLossTie(t.standing.divisionWins, t.standing.divisionLosses, t.standing.divisionTies)}}</p>
+            <p class='text-bold grid-data'>{{ winLossTie(t.standing.conferenceWins, t.standing.conferenceLosses, t.standing.conferenceTies)}}</p>
+        </ng-container>
+    </div>
 </div>

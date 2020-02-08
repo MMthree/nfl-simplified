@@ -1,7 +1,15 @@
 .card-grid {
+    margin: 10px;
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(2, 1fr);
+}
+
+.card-grid-single {
+    margin: 10px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: 1fr;
 }
 
 h1 {
@@ -9,8 +17,8 @@ h1 {
     text-transform: uppercase;
 }
 
-@media screen and (max-width: 650px) {
-    .card-container {
+@media screen and (max-width: 1200px) {
+    .card-grid {
         grid-template-columns: 1fr;
     }
 }

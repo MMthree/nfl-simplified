@@ -27,8 +27,14 @@ $nfl-simplified-theme: mat-light-theme($nfl-simplified-primary, $nfl-simplified-
 @include angular-material-theme($nfl-simplified-theme);
 
 :root {
-    --primary: #2d3142;
-    --secondary: #4f5d75;
+    --primary: #2D3142;
+    --secondary: #DF4949;
+
+    --primary-light: #2373BC;
+    --secondary-light: #F86969;
+    --background: #F5F3EE;
+    --text-light: #ADA9A9;
+    --text-dark: #403737;
 }
 
 body, html {
@@ -37,7 +43,7 @@ body, html {
     padding: 0;
     box-sizing: border-box;
     height: 100%; 
-    background-color: #f6f6f6;
+    background-color: var(--background);
 }
 
 .container {

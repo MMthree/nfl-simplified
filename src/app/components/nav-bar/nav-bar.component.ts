@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./nav-bar.component.scss']
 })
 export class NavBarComponent implements OnInit {
-  sideNav:Boolean = false;
+  opened:Boolean = false;
 
   constructor(private router: Router) { 
   }
@@ -20,8 +20,8 @@ export class NavBarComponent implements OnInit {
   }
 
   toggleSideNav() {
-    this.sideNav = !this.sideNav;
-    console.log(this.sideNav)
+    this.opened = !this.opened;
+    console.log(this.opened)
   }
 
 }

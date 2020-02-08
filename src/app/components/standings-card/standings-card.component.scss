@@ -1,18 +1,56 @@
 .standing-card {
-    background-color: #fff;
+    background-color: var(--background);
     border-radius: 3px;
-    margin: 10px;
-    box-shadow: 0 2px 1px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    padding: 10px 20px;
+    box-shadow: 4px 3px 8px 0px rgba(153,153,153,1);
 
     .title {
-        font-size: 2rem;
+        font-family: 'Roboto Slab', serif;
+        font-size: 2.5rem;
         font-weight: 500;
         margin: 0;
+        text-transform: uppercase;
+        color: var(--text-dark);
     }
 
-    .title-stripe {
-        height: 10px;
+    .afc-stripe {
+        height: 2px;
         width: 100%;
-        background-color: red;
+        background-color: var(--secondary);
+    }
+
+    .nfc-stripe {
+        height: 2px;
+        width: 100%;
+        background-color: var(--primary-light);
+    }
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: 30% 10% 10% 10% 20% 20%;
+    grid-template-rows: repeat(auto, 6);
+    font-family: 'Roboto', sans-serif;
+
+    .grid-label {
+        color: var(--text-light);
+        justify-self: center;   
+        font-size: 1.2rem;
+        font-weight: 500;
+    }
+
+    .grid-data {
+        justify-self: center;
+    }
+
+    .text-bold {
+        font-size: 1.2rem;
+        color: var(--text-dark);
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    p {
+        margin: 10px 0;
     }
 }

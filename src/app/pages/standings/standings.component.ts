@@ -30,7 +30,6 @@ export class StandingsComponent implements OnInit {
 
         const sort = this.sortTeamsByOverallStandings(data);
         this.overallStandings = sort;
-        console.log(sort)
         if (this.standingsType === 'division' || !this.standingsType) {
           this.sortTeamsByDivision(sort);
         } else if (this.standingsType === 'conference') {
@@ -87,7 +86,6 @@ export class StandingsComponent implements OnInit {
         result.push(map[d])
       }
     }
-    console.log(result);
     this.divisions = result;
   }
 
@@ -110,8 +108,11 @@ export class StandingsComponent implements OnInit {
         result.push(map[d])
       }
     }
-    console.log(result);
     this.conferences = result;
   }
 
+  addFtoDivisionAbbr(name) {
+    const l = name.split('');
+    return l[0] + 'F' + l[1] + l[2]
+  }
 }
