@@ -2,14 +2,14 @@
 
   <mat-sidenav #sidenav mode="push" [(opened)]="opened">
     <button (click)="sidenav.close()">Close</button>
-    <p routerLink='/'>home</p>
-    <p routerLink='/standings'>standings</p>
+    <p routerLink='/' (click)="sidenav.close()">home</p>
+    <p routerLink='/standings' (click)="sidenav.close()">standings</p>
   </mat-sidenav>
 
   <mat-sidenav-content>
     <div class='nav-bar'>
       <div class='nav-logo'>
-        <p>NFL SIMPLIFIED</p>
+        <p routerLink="/">NFL SIMPLIFIED</p>
       </div>
       <div class="nav-burger" (click)="sidenav.open()">
         <div class="bar1"></div>

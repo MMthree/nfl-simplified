@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Router, NavigationExtras } from '@angular/router';
 
 @Component({
   selector: 'app-standings-card',
@@ -9,7 +10,7 @@ export class StandingsCardComponent implements OnInit {
   @Input('title') title: string; 
   @Input('teams') teams: []; 
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
     this.sortByDivisionRank(this.teams)
@@ -26,6 +27,16 @@ export class StandingsCardComponent implements OnInit {
 
   winLossTie(w, l, t) {
     return `${w}-${l}-${t}`
+  }
+
+  teamPageWithData(name, data) {
+    const NavigationExtras: NavigationExtras = {
+      state: {
+        teamId: data
+      }
+    } 
+    console.log(NavigationExtras)
+    this.router.navigate([`/team/${name.toLowerCase()}`], NavigationExtras)
   }
 
 }

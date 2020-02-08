@@ -12,9 +12,75 @@
     grid-template-columns: 1fr;
 }
 
-h1 {
-    color: #1D1F24;
+.season-selector {
+    font-family: 'Roboto Condensed', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    select {
+        cursor: pointer;
+        margin: 10px;
+        padding: 5px;
+        background-color: var(--background);
+        border: 1px solid var(--text-dark);
+        border-radius: 2px;
+        font-size: .9rem;
+
+        &:focus {
+            outline: none;
+        }
+
+        option {
+            border: 1px solid var(--text-dark);
+            background-color: var(--background);
+        }
+    }
+}
+
+.standings-type {
+    font-family: 'Roboto Condensed', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    margin-bottom: 30px;
+}
+
+.outline-btn {
+    margin: 0 10px;
+    padding: 10px;
+    background-color: var(--background);
+    border: 1px solid var(--text-dark);
+    border-radius: 2px;
     text-transform: uppercase;
+    cursor: pointer;
+
+    &:hover {
+        border: 2px solid var(--text-dark)
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.active-btn {
+    color: var(--background);
+    background-color: var(--text-dark);
+    border: 1px solid var(--text-dark);
+    margin: 0 10px;
+    padding: 10px;
+    border-radius: 2px;
+    text-transform: uppercase;
+
+    &:hover {
+        border: 2px solid var(--text-dark)
+    }
+
+    &:focus {
+        outline: none;
+    }
 }
 
 @media screen and (max-width: 1200px) {

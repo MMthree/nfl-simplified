@@ -19,9 +19,4 @@ export class NavBarComponent implements OnInit {
     return this.router.navigateByUrl('/')
   }
 
-  toggleSideNav() {
-    this.opened = !this.opened;
-    console.log(this.opened)
-  }
-
 }

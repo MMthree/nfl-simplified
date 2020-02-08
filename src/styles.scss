@@ -52,6 +52,14 @@ body, html {
     max-width: 1400px;
 }
 
+.page-title {
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--text-dark)
+}
+
 @media screen and (max-width: 650px) {
     .container {
         width: 99%;

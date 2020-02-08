@@ -10,7 +10,7 @@
         <p class='grid-label'>CONF</p>
 
         <ng-container *ngFor="let t of teams">
-            <p class="text-bold">{{t.team.nick}}</p>
+            <p (click)="teamPageWithData(t.team.nick, t.team.teamId)" class="text-bold point">{{t.team.nick}}</p>
             <p class='text-bold grid-data'>{{t.standing.overallWins}}</p>
             <p class='text-bold grid-data'>{{t.standing.overallLosses}}</p>
             <p class='text-bold grid-data'>{{t.standing.overallTies}}</p>

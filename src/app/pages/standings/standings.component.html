@@ -1,5 +1,9 @@
 <div class="container">
-    <div>
+    <p class="page-title">
+        STANDINGS
+    </p>
+
+    <div class='season-selector'>
         <select (change)="yearSelecter($event)" name="year">
             <option value="2019">2019</option>
             <option value="2018">2018</option>
@@ -12,11 +16,12 @@
         </select>
     </div>
 
-    <div>
+    <div class='standings-type'>
         <button 
             name="division"
             (click)="handleStandingsChange($event)" 
             routerLink="/standings/division"
+            [ngClass]="standingsType === 'division' ? 'active-btn' : !standingsType ? 'active-btn' : 'outline-btn'"
         >
             Division
         </button>
@@ -24,6 +29,7 @@
             name="conference"
             (click)="handleStandingsChange($event)" 
             routerLink="/standings/conference"
+            [ngClass]="standingsType === 'conference' ? 'active-btn' : 'outline-btn'"
         >
             Conference
         </button>
@@ -31,6 +37,7 @@
             name="league"
             (click)="handleStandingsChange($event)" 
             routerLink="/standings/league"
+            [ngClass]="standingsType === 'league' ? 'active-btn' : 'outline-btn'"
         >
             League
         </button>
