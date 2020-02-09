@@ -15,6 +15,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
 
 import { StandingsCardComponent } from './components/standings-card/standings-card.component';
 import { TeamsComponent } from './pages/teams/teams.component';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { TeamsComponent } from './pages/teams/teams.component';
     HomeComponent,
     StandingsComponent,
     StandingsCardComponent,
-    TeamsComponent
+    TeamsComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,

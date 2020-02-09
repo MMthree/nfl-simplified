@@ -60,6 +60,23 @@ body, html {
     color: var(--text-dark)
 }
 
+.outline-btn {
+    background-color: var(--background);
+    color: var(--text-dark);
+    padding: 10px;
+    text-transform: uppercase;
+    border: 1px solid var(--text-dark);
+    cursor: pointer;
+    
+    &:hover {
+        border: 2px solid var(--text-dark);
+    }
+
+    &:focus {
+        outline: none;
+    }
+}
+
 @media screen and (max-width: 650px) {
     .container {
         width: 99%;
