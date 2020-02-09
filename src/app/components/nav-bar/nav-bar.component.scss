@@ -1,5 +1,11 @@
 mat-sidenav-container {
     height: 100vh;
+    background-color: var(--text-dark);
+
+    mat-sidenav {
+        background-color: var(--background);
+        color: var(--text-dark)
+    }
 }
 
 mat-sidenav-content {
@@ -35,10 +41,6 @@ mat-sidenav-content {
         flex-direction: column;
         justify-content: space-between;
         cursor: pointer;
-
-        &:hover {
-            background-color: #fff;
-        }
     
         .bar1{
             height: 3px;
@@ -57,6 +59,95 @@ mat-sidenav-content {
             background-color: var(--text-dark);
         }
     }
+}
+
+.sidenav-container {
+    width: 230px;
+    padding: 20px;
+
+    .close {
+        cursor: pointer;
+        position: absolute;
+        right: 16px;
+        top: 16px;
+        width: 32px;
+        height: 32px;
+        opacity: 0.5;
+
+        &:hover {
+            opacity: 1;
+        }
+        &:before, &:after {
+            position: absolute;
+            left: 15px;
+            content: ' ';
+            height: 24px;
+            width: 3px;
+            background-color: var(--text-dark);
+        }
+        &:before {
+            transform: rotate(45deg);
+        }
+        &:after {
+            transform: rotate(-45deg);
+        }
+    }
+
+    .sidenav-link {
+        cursor: pointer;
+        // border-bottom: 1px solid var(--text-dark);
+
+        &:hover {
+            background-color: rgb(253, 251, 251);
+        }
+
+        p {
+            margin: 0;
+            padding: 10px 10px;
+            text-transform: uppercase;
+            font-size: 1.4rem;
+
+            &:focus {
+                outline: none;
+            }
+        }
+    }
+}
+
+.border-t-b {
+    border-top: 1px solid var(--text-dark);
+    border-bottom: 1px solid var(--text-dark);
+}
+
+.expanded-link {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+
+    &:focus {
+        outline: none;
+    }
+
+    &:hover {
+        background-color: rgb(253, 251, 251);
+    }
+
+    img {
+        height: 2rem;
+        margin: 0 10px;
+    }
+
+    p {
+        margin: 0;
+    }
+}
+
+.expand {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 @media screen and (max-width: 650px) {

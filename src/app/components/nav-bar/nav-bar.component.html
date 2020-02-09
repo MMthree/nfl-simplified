@@ -1,9 +1,47 @@
 <mat-sidenav-container>
 
   <mat-sidenav #sidenav mode="push" [(opened)]="opened">
-    <button (click)="sidenav.close()">Close</button>
-    <p routerLink='/' (click)="sidenav.close()">home</p>
-    <p routerLink='/standings' (click)="sidenav.close()">standings</p>
+    <div class='sidenav-container'>
+      <div class="close" (click)='sidenav.close()'></div>
+      <br />
+      <br />
+      
+      <div class='sidenav-link .top-link'>
+        <p routerLink='/' (click)="sidenav.close()">home</p>
+      </div>
+
+      <div class="sidenav-link border-t-b">
+        <p routerLink='/standings' (click)="sidenav.close()">standings</p>
+      </div>
+
+      <div class="sidenav-link expand" (click)="teamsExpand = !teamsExpand">
+        <p>teams</p>
+
+        <i *ngIf="teamsExpand; else notExpand" class="material-icons">
+          keyboard_arrow_down
+        </i>
+
+        <ng-template #notExpand>
+          <i class="material-icons">
+            keyboard_arrow_right
+          </i>
+        </ng-template>
+      </div>
+
+      <ng-container *ngIf="teamsExpand">
+        <div 
+          class="expanded-link" 
+          *ngFor="let t of teams" 
+          routerLink="/team/{{t.name}}"
+          (click)="sidenav.close()"
+        >
+          <img src="assets/images/logos/teams/dark/{{t[t.name].abbr}}.svg" alt="{{t.name}}"/>
+          <p>{{t[t.name].nick}}</p>
+        </div>
+      </ng-container>
+     
+
+    </div>
   </mat-sidenav>
 
   <mat-sidenav-content>

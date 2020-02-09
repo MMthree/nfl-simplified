@@ -77,4 +77,13 @@
             </div>
         </app-standings-card>
     </div>
+
+    <div *ngFor="let t of overallStandings">
+        <pre>
+            "{{t.team.nick.toLowerCase()}}": 
+                "team_id": "{{t.team.teamId}}",
+                "abbr": "{{t.team.abbr}}",
+                "nick": "{{t.team.nick}}"
+        </pre>
+    </div>
 </div>

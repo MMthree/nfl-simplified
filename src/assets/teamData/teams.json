@@ -1,0 +1,258 @@
+[
+    {
+        "name": "ravens",
+        "ravens": {
+            "team_id": "0325",
+            "abbr": "BAL",
+            "nick": "Ravens"
+        }
+    },
+    {
+        "name": "packers",
+        "packers": {
+            "team_id": "1800",
+            "abbr": "GB",
+            "nick": "Packers"
+        }
+    },
+    {
+        "name": "saints",
+        "saints": { 
+            "team_id": "3300",
+            "abbr": "NO",
+            "nick": "Saints"
+        }
+    },
+    {
+        "name": "49ers",
+        "49ers": {
+            "team_id": "4500",
+            "abbr": "SF",
+            "nick": "49ers"
+        }
+    },
+    {
+        "name": "chiefs",
+        "chiefs": {
+            "team_id": "2310",
+            "abbr": "KC",
+            "nick": "Chiefs"
+        }
+    },
+    {
+        "name": "patriots",
+        "patriots": {
+            "team_id": "3200",
+            "abbr": "NE",
+            "nick": "Patriots"
+        }
+    },
+    {
+        "name": "seahawks",
+        "seahawks": {
+            "team_id": "4600",
+            "abbr": "SEA",
+            "nick": "Seahawks"
+        }
+    },
+    {
+        "name": "bills",
+        "bills": {
+            "team_id": "0610",
+            "abbr": "BUF",
+            "nick": "Bills"
+        }
+    },
+    {
+        "name": "texans",
+        "texans": { 
+            "team_id": "2120",
+            "abbr": "HOU",
+            "nick": "Texans"
+        }
+    },
+    {
+        "name": "vikings",
+        "vikings": {
+            "team_id": "3000",
+            "abbr": "MIN",
+            "nick": "Vikings"
+        }
+    },
+    {
+        "name": "titans",
+        "titans": { 
+            "team_id": "2100",
+            "abbr": "TEN",
+            "nick": "Titans"
+        }
+    },
+    {
+        "name": "rams",
+        "rams": { 
+            "team_id": "2510",
+            "abbr": "LA",
+            "nick": "Rams"
+        }
+    },
+    {
+        "name": "eagles",
+        "eagles": {
+            "team_id": "3700",
+            "abbr": "PHI",
+            "nick": "Eagles"
+        }
+    },
+    { 
+        "name": "bears",
+        "bears": {
+            "team_id": "0810",
+            "abbr": "CHI",
+            "nick": "Bears"
+        }
+    },
+    {
+        "name": "cowboys",
+        "cowboys": { 
+            "team_id": "1200",
+            "abbr": "DAL",
+            "nick": "Cowboys"
+        }
+    },
+    {
+        "name": "steelers",
+        "steelers": { 
+            "team_id": "3900",
+            "abbr": "PIT",
+            "nick": "Steelers"
+        }
+    },
+    {
+        "name": "falcons",
+        "falcons": { 
+            "team_id": "0200",
+            "abbr": "ATL",
+            "nick": "Falcons"
+        }
+    },
+    {
+        "name": "broncos",
+        "broncos": {
+            "team_id": "1400",
+            "abbr": "DEN",
+            "nick": "Broncos"
+        }
+    },
+    {
+        "name": "colts",
+        "colts": {
+            "team_id": "2200",
+            "abbr": "IND",
+            "nick": "Colts"
+        }
+    },
+    {
+        "name": "raiders",
+        "raiders": { 
+            "team_id": "2520",
+            "abbr": "OAK",
+            "nick": "Raiders"
+        }
+    },
+    {
+        "name": "jets",
+        "jets": { 
+            "team_id": "3430",
+            "abbr": "NYJ",
+            "nick": "Jets"
+        }
+    },
+    {
+        "name": "buccaneers",
+        "buccaneers": { 
+            "team_id": "4900",
+            "abbr": "TB",
+            "nick": "Buccaneers"
+        }
+    },
+    {
+        "name": "browns",
+        "browns": { 
+            "team_id": "1050",
+            "abbr": "CLE",
+            "nick": "Browns"
+        }
+    },
+    {
+        "name": "jaguars",
+        "jaguars": { 
+            "team_id": "2250",
+            "abbr": "JAX",
+            "nick": "Jaguars"
+        }
+    },
+    {   
+        "name": "cardinals",
+        "cardinals": { 
+            "team_id": "3800",
+            "abbr": "ARI",
+            "nick": "Cardinals"
+        }
+    },
+    {
+        "name": "panthers",
+        "panthers": { 
+            "team_id": "0750",
+            "abbr": "CAR",
+            "nick": "Panthers"
+        }
+    },
+    {
+        "name": "dolphins",
+        "dolphins": { 
+            "team_id": "2700",
+            "abbr": "MIA",
+            "nick": "Dolphins"
+        }
+    },
+    {
+        "name": "chargers",
+        "chargers": { 
+            "team_id": "4400",
+            "abbr": "LAC",
+            "nick": "Chargers"
+        }
+    },
+    {
+        "name": "giants",
+        "giants": { 
+            "team_id": "3410",
+            "abbr": "NYG",
+            "nick": "Giants"
+        }
+    },
+    {
+        "name": "lions",
+        "lions": { 
+            "team_id": "1540",
+            "abbr": "DET",
+            "nick": "Lions"
+        }
+    },
+    {
+        "name": "redskins",
+        "redskins": {
+            "team_id": "5110",
+            "abbr": "WAS",
+            "nick": "Redskins"
+        }
+    },
+    {
+        "name": "bengals",
+        "bengals": {
+            "team_id": "0920",
+            "abbr": "CIN",
+            "nick": "Bengals"
+        }
+    }
+]
