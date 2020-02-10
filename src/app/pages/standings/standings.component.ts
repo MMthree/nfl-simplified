@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from '../../http.service';
-import { ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -17,11 +17,25 @@ export class StandingsComponent implements OnInit {
   year = '2019'
   seasonType= 'REG'
 
-  constructor(private http: HttpService, private route: ActivatedRoute) { }
+  constructor(
+    private http: HttpService, 
+    private route: ActivatedRoute,
+    private redirect: Router
+  ) { }
 
   ngOnInit() {
     this.getStandings('2019', "REG");
     this.standingsType = this.route.snapshot.paramMap.get("type");
+  }
+
+  checkUrlParam(param) {
+    const match = ['division', 'conference', 'league'].find(t => t === param);
+
+    if (match) {
+      return true
+    } else {
+      return false
+    }
   }
 
   getStandings(year, season) {
@@ -29,7 +43,6 @@ export class StandingsComponent implements OnInit {
       this.http.getStandings(year, season).subscribe(data => {
 
         const sort = this.sortTeamsByOverallStandings(data);
-        console.log(sort)
         this.overallStandings = sort;
         if (this.standingsType === 'division' || !this.standingsType) {
           this.sortTeamsByDivision(sort);

@@ -10,7 +10,7 @@ import teamData from '../../../assets/teamData/teams.json'
 })
 export class NavBarComponent implements OnInit {
 
-  opened:Boolean = true;
+  opened:Boolean = false;
   teamsExpand:Boolean = false;
 
   teams = []
@@ -21,8 +21,8 @@ export class NavBarComponent implements OnInit {
   ngOnInit() {
     const alph = teamData.sort((a, b) => {
       return a.name.localeCompare(b.name);
-   });
+    });
+    
     this.teams = alph
-    console.log(alph)
   }
 }

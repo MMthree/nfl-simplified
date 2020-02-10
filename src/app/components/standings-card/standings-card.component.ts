@@ -30,13 +30,7 @@ export class StandingsCardComponent implements OnInit {
   }
 
   teamPageWithData(name, data) {
-    const NavigationExtras: NavigationExtras = {
-      state: {
-        teamId: data
-      }
-    } 
-    console.log(NavigationExtras)
-    this.router.navigate([`/team/${name.toLowerCase()}`], NavigationExtras)
+    this.router.navigate([`/team/${name.toLowerCase()}`])
   }
 
 }

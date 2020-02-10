@@ -1,1 +1,39 @@
-<p>teams works!</p>
+<div class="container">
+    <div class="team-header">
+
+        <ng-container *ngIf="teamData.abbr">
+            <img src="assets/images/logos/teams/dark/{{teamData.abbr}}.svg" alt="{{teamData.abbr}}" />
+        </ng-container>
+
+        <p class="team-title">
+            {{teamData.fullName}}
+        </p>
+
+        <p class='team-established'>Est. {{teamData.yearFound}}</p>
+
+        <div class="team-details-container">
+            <p> 
+                <i class="material-icons">
+                    face
+                </i> 
+                {{coach.displayName}}
+            </p>
+            <p>
+                <i class="material-icons">
+                    home
+                </i>
+                {{teamData.stadiumName}}
+            </p>
+        </div>
+    </div>
+
+    <div class="card">
+        <p class="card-title">
+            Schedule
+        </p>
+
+        <ng-container *ngIf="teamData.abbr">
+            <div [ngClass]="teamData.conferenceAbbr.split('')[0] === 'A' ? 'afc-stripe' : 'nfc-stripe'"></div>
+        </ng-container>
+    </div>
+</div>

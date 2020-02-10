@@ -77,6 +77,34 @@ body, html {
     }
 }
 
+.card {
+    background-color: var(--background);
+    border-radius: 3px;
+    padding: 10px 20px;
+    box-shadow: 4px 3px 8px 0px rgba(153,153,153,1);
+
+    .card-title {
+        font-family: 'Roboto Slab', serif;
+        font-size: 2.5rem;
+        font-weight: 500;
+        margin: 0;
+        text-transform: uppercase;
+        color: var(--text-dark);
+    }
+
+    .afc-stripe {
+        height: 2px;
+        width: 100%;
+        background-color: var(--secondary);
+    }
+
+    .nfc-stripe {
+        height: 2px;
+        width: 100%;
+        background-color: var(--primary-light);
+    }
+}
+
 @media screen and (max-width: 650px) {
     .container {
         width: 99%;
