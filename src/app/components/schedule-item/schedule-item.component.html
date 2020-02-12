@@ -1,0 +1,41 @@
+<div class="item-container" *ngIf="teams.week === 'BYE'">
+    <p class="week">week {{teams.weekNum}}</p>
+    <h3>BYE</h3>
+    <div class="divider"></div>
+</div>
+
+<div class="item-container" *ngIf="teams.week !== 'BYE'">
+    <p class="week">week {{teams.week}}</p>
+    <p class="date">{{formatDateAndTime(teams.isoTime)}}</p>
+
+    <div class="score-grid">
+        <div class="away-desc" routerLink="/team/{{teams.visitorNickname.toLowerCase()}}">
+            <img class="team-logo" src="assets/images/logos/teams/dark/{{teams.visitorTeamAbbr}}.svg" alt={{game.visitorDisplayName}} />
+            <p class="team-name">{{teams.visitorNickname}}</p>
+        </div>
+
+        <div class="scores-container">
+            <p 
+                [className]="scoreClass(scores.visitorTeamScore.pointTotal, scores.homeTeamScore.pointTotal) ? 'losing-score' : 'winning-score'"
+            >
+                {{scores.visitorTeamScore.pointTotal}}
+            </p>
+            <p class="at-symbol">@</p>
+            <p 
+                [className]="scoreClass(scores.visitorTeamScore.pointTotal, scores.homeTeamScore.pointTotal) ? 'winning-score' : 'losing-score'"
+            >
+                {{scores.homeTeamScore.pointTotal}}
+            </p>
+        </div>
+        
+
+        <div class="home-desc" routerLink="/team/{{teams.homeNickname.toLowerCase()}}">
+            <img class="team-logo" src="assets/images/logos/teams/dark/{{teams.homeTeamAbbr}}.svg" alt={{game.homeDisplayName}} />
+            <p class="team-name">{{teams.homeNickname}}</p>
+        </div>
+    </div>
+
+    <p class='game-status'>{{scores.phaseDescription}}</p>
+
+    <div class="divider"></div>
+</div>

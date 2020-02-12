@@ -1,2 +1,22 @@
-<p>home works!</p>
-<img src='assets/images/logos/teams/dark/{{team}}.svg' alt="ari logo" />
+<div class="container">
+    <p class="page-title">NFL SIMPLIFIED</p>
+
+    <p class='ns-about'>
+        NFL Simplied was made to quickly view information without
+        the annoyance of ads, articles, or auto-playing videos. You won't find
+        detailed stats here. Our goal is to show the basic stats most fans are seeking.   
+    </p>
+
+    <p class='ns-provide'>Get started by visition your favorite team's page!</p>
+
+    <div class="logo-container">
+        <ng-container *ngFor="let t of team">
+            <img 
+                routerLink='/team/{{t.name}}'
+                height="50px" 
+                src="assets/images/logos/teams/dark/{{t[t.name].abbr}}.svg" 
+                alt="{{t[t.name].abbr}}"
+            />
+        </ng-container>
+    </div>
+</div>

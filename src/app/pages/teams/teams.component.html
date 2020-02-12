@@ -27,13 +27,26 @@
         </div>
     </div>
 
-    <div class="card">
-        <p class="card-title">
-            Schedule
-        </p>
+    <div class="card-grid">
+        <div class="card">
+            <div class="schedule-title">
+                <p class="year">{{teamData.season}}</p>
+                <p class="schedule">Schedule</p>
+            </div>
 
-        <ng-container *ngIf="teamData.abbr">
-            <div [ngClass]="teamData.conferenceAbbr.split('')[0] === 'A' ? 'afc-stripe' : 'nfc-stripe'"></div>
-        </ng-container>
+            <ng-container *ngIf="teamData.abbr">
+                <div [ngClass]="teamData.conferenceAbbr.split('')[0] === 'A' ? 'afc-stripe' : 'nfc-stripe'"></div>
+            </ng-container>
+
+            <ng-container *ngIf="schedule.length >= 1">
+                <app-schedule-item *ngFor="let data of schedule"
+                    [game]="data"
+                    [teams]="data.gameSchedule"
+                    [scores]="data.score"
+                >    
+                </app-schedule-item>
+            </ng-container>
+        </div>
     </div>
+    
 </div>

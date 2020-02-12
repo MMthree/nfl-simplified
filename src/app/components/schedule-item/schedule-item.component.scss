@@ -1,0 +1,113 @@
+.item-container {
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+    padding: 20px 0 0 0;
+    margin: 0;
+    color: var(--text-dark);
+    width: 100%;
+
+    &:hover {
+        background-color: white;
+    }
+
+    .week {
+        margin: 5px 0;
+        font-size: 1.3rem;
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+
+    .date {
+        margin: 0;
+    }
+
+    .score-grid {
+        margin: 10px 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        justify-content: center;
+        align-items: center;
+
+        .home-desc, .away-desc {
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            justify-self: flex-start;
+            align-items: center;
+            margin: 0;
+
+            &:focus {
+                outline: none;
+            }
+
+            @media screen and (max-width: 650px) {
+                justify-self: center;
+            }
+            
+            .team-name {
+                margin: 0 5px;
+                font-size: 1.2rem;
+            }
+        }
+
+        .away-desc {
+            justify-self: flex-end;
+
+            @media screen and (max-width: 650px) {
+                justify-self: center;
+            }
+        }
+
+        .scores-container {
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+
+            .at-symbol {
+                margin: 0 10px;
+            }
+    
+            .team-score {
+                margin: 0;
+                font-size: 2rem;
+                font-weight: 700;
+            }
+        }
+    }
+
+    .divider {
+        margin: 0 auto;
+        height: 2px;
+        width: 70%;
+        background-color: var(--text-dark);
+    }
+}
+.team-logo {
+    height: 50px;
+}
+
+.losing-score {
+    color: var(--text-light);
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.winning-score {
+    color: var(--text-dark);
+    margin: 0;
+    font-size: 2rem;
+    font-weight: 700;
+}
+
+.game-status {
+    font-weight: 700;
+    margin: 0 0 25px 0;
+}
+
+@media screen and (max-width: 650px) {
+
+    .team-logo {
+        height: 40px;
+    }
+}

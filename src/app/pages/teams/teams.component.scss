@@ -38,3 +38,29 @@
         }
     }
 }
+
+.schedule-title {
+    margin: 10px;
+    font-family: 'Roboto Condensed', sans-serif;
+    text-align: center;
+    color: var(--text-dark);
+
+    .year {
+        margin: 0;
+        font-size: 2rem;
+        font-weight: 700;
+    }
+
+    .schedule {
+        margin: 0;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-size: 1.6rem;
+    }
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-content: center;
+}
