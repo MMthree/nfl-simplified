@@ -13,8 +13,8 @@ import teamJson from '../../../assets/teamData/teams.json';
 export class TeamsComponent implements OnInit {
 
   teamName:String = ''
-  teamData = {}
-  coach = {}
+  teamData
+  coach
   teamId:String = ''
   schedule = [];
   byeWeek = ''
