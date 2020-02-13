@@ -57,6 +57,20 @@
         font-weight: 700;
         font-size: 1.6rem;
     }
+
+    .wl-title {
+        margin: 10px 0 0 0;
+        font-size: .9rem;
+        color: var(--text-light)
+    }
+
+    .win-loss-record {
+        margin: 0 0 10px 0;
+        font-family: "Roboto", sans-serif;
+        color: var(--text-dark);
+        font-size: 1.3rem;
+        font-weight: 500;
+    }
 }
 
 .card-grid {

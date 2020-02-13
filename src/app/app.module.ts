@@ -12,11 +12,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './material';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { StandingsCardComponent } from './components/standings-card/standings-card.component';
 import { TeamsComponent } from './pages/teams/teams.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ScheduleItemComponent } from './components/schedule-item/schedule-item.component';
+import { LoadingComponent } from './loading/loading.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import { ScheduleItemComponent } from './components/schedule-item/schedule-item.
     StandingsCardComponent,
     TeamsComponent,
     NotFoundComponent,
-    ScheduleItemComponent
+    ScheduleItemComponent,
+    LoadingComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,8 @@ import { ScheduleItemComponent } from './components/schedule-item/schedule-item.
     FormsModule,
     BrowserAnimationsModule,
     MaterialModule,
-    MatSidenavModule
+    MatSidenavModule,
+    MatProgressSpinnerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -16,9 +16,10 @@ export class TeamsComponent implements OnInit {
   teamData
   coach
   teamId:String = ''
-  schedule = [];
+  schedule
   byeWeek = ''
-
+  winLossRecord
+  loading = false
 
   constructor(
     private router: ActivatedRoute, 
@@ -34,9 +35,14 @@ export class TeamsComponent implements OnInit {
       document.querySelector('.nav-bar').scrollIntoView(true)
 
       if (validate) {
+        this.loading = true
+
         this.teamName = p.teamId
         this.getTeam(p.teamId);
         this.getSchedule(this.teamId)
+        this.getScoresForWinLoss(p.teamId)
+
+        this.loading = false
       } else {
         this.redirect.navigate(['/404'])
       }
@@ -71,7 +77,6 @@ export class TeamsComponent implements OnInit {
   }
   
   getSchedule(team) {
-
     this.http.getScheduleByTeamAndYear(team).subscribe(data => {
 
       const REG = data['gameScores'].filter(t => t.gameSchedule.seasonType === "REG");
@@ -89,6 +94,14 @@ export class TeamsComponent implements OnInit {
 
       this.schedule = REG;
       this.byeWeek = bye[0];
+    })
+  }
+
+  getScoresForWinLoss(name) {
+    this.http.getStandings("2019", "REG").subscribe((data:any) => {
+      const team = data.teamStandings.find(t => t.team.nick.toLowerCase() === name)
+
+      this.winLossRecord = `${team.standing.overallWins}-${team.standing.overallLosses}-${team.standing.overallTies}`
     })
   }
 }

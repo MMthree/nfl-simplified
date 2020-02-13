@@ -26,9 +26,7 @@ export class HttpService {
   getScheduleByTeamAndYear(team:string) {
     const zone = moment.tz.guess();
     const abbr = moment.tz(zone).format('z');
-
-    //TODO switch apis
-    //https://feeds.nfl.com/feeds-rs/scores/byTeam/LA/2019.json
+    
     return this.http.get(`https://feeds.nfl.com/feeds-rs/scores/byTeam/${team}/2019.json?tz=${abbr}`)
   }
 }

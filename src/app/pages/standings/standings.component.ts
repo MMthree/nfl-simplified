@@ -16,6 +16,7 @@ export class StandingsComponent implements OnInit {
   standingsType = ''
   year = '2019'
   seasonType= 'REG'
+  loading = false
 
   constructor(
     private http: HttpService, 
@@ -24,8 +25,10 @@ export class StandingsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+    this.loading = true
     this.getStandings('2019', "REG");
     this.standingsType = this.route.snapshot.paramMap.get("type");
+    this.loading = false
   }
 
   checkUrlParam(param) {
