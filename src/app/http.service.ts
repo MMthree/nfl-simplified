@@ -11,7 +11,7 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   getStandings (year:string, type:string) {
-      return this.http.get(`https://feeds.nfl.com/feeds-rs/standings/${year}/${type}.json`)
+      return this.http.get(`https://api.sportsdata.io/v3/nfl/scores/json/Standings/${year}${type}?key=defda8911b1243f2909ed00328744c5d`)
   }
 
   getTeams() {

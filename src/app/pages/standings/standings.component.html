@@ -10,8 +10,6 @@
     <div class='season-selector'>
         <select (change)="yearSelecter($event)" name="year">
             <option value="2019">2019</option>
-            <option value="2018">2018</option>
-            <option value="2017">2017</option>
         </select>
 
         <select (change)="seasonTypeSelector($event)" name="season-type">
@@ -50,11 +48,11 @@
     <div class="card-grid" *ngIf="standingsType === 'division' || !standingsType">
         <app-standings-card    
             *ngFor="let divs of divisions"
-            [title]="addFtoDivisionAbbr(divs[0].team.divisionAbbr)"
+            [title]="makeDivisionAbbr(divs[0].Conference, divs[0].Division)"
             [teams]="divs"
         >  
             <div *ngFor="let teams of divs">
-                <p>{{teams.team.nick}}</p>
+                <p>{{teams.Team}}</p>
             </div>
         </app-standings-card>
     </div>
@@ -62,11 +60,11 @@
     <div class="card-grid" *ngIf="standingsType === 'conference'">
         <app-standings-card    
             *ngFor="let conf of conferences"
-            [title]="conf[0].team.conferenceAbbr"
+            [title]="conf[0].Conference"
             [teams]="conf"
         >  
             <div *ngFor="let teams of conf">
-                <p>{{teams.team.nick}}</p>
+                <p>{{teams.Name}}</p>
             </div>
         </app-standings-card>
     </div>
@@ -77,7 +75,7 @@
             [teams]="overallStandings"
         >  
             <div *ngFor="let t of overallStandings">
-                <p>{{t.team.nick}}</p>
+                <p>{{t.Name}}</p>
             </div>
         </app-standings-card>
     </div>

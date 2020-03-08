@@ -80,7 +80,7 @@ export class StandingsComponent implements OnInit {
   }
 
   sortTeamsByOverallStandings(teams) {
-    const overallStandings = teams.teamStandings.sort((a, b) => b.standing.overallWinPct - a.standing.overallWinPct);
+    const overallStandings = teams.sort((a, b) => b.Percentage - a.Percentage);
     return overallStandings;
   }
 
@@ -88,10 +88,10 @@ export class StandingsComponent implements OnInit {
     let map = {};
     let result = [];
     teams.forEach(t => {
-      if (map[t.team.divisionAbbr]) {
-        map[t.team.divisionAbbr].push(t)
+      if (map[t.Conference + t.Division]) {
+        map[t.Conference + t.Division].push(t)
       } else {
-        map[t.team.divisionAbbr] = [t]
+        map[t.Conference + t.Division] = [t]
       }
     });
 
@@ -103,6 +103,7 @@ export class StandingsComponent implements OnInit {
         result.push(map[d])
       }
     }
+
     this.divisions = result;
   }
 
@@ -110,10 +111,10 @@ export class StandingsComponent implements OnInit {
     let map = {};
     let result = [];
     teams.forEach(t => {
-      if (map[t.team.conferenceAbbr]) {
-        map[t.team.conferenceAbbr].push(t)
+      if (map[t.Conference]) {
+        map[t.Conference].push(t)
       } else {
-        map[t.team.conferenceAbbr] = [t]
+        map[t.Conference] = [t]
       }
     });
 
@@ -128,6 +129,9 @@ export class StandingsComponent implements OnInit {
     this.conferences = result;
   }
 
+  makeDivisionAbbr(conference, division) {
+    return `${conference}${division[0]}`
+  };
   addFtoDivisionAbbr(name) {
     const l = name.split('');
     return l[0] + 'F' + l[1] + l[2]

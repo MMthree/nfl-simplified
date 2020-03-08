@@ -10,12 +10,12 @@
         <p class='grid-label'>CONF</p>
 
         <ng-container *ngFor="let t of teams">
-            <p (click)="teamPageWithData(t.team.nick, t.team.teamId)" class="text-bold point">{{t.team.nick}}</p>
-            <p class='text-bold grid-data'>{{t.standing.overallWins}}</p>
-            <p class='text-bold grid-data'>{{t.standing.overallLosses}}</p>
-            <p class='text-bold grid-data'>{{t.standing.overallTies}}</p>
-            <p class='text-bold grid-data'>{{ winLossTie(t.standing.divisionWins, t.standing.divisionLosses, t.standing.divisionTies)}}</p>
-            <p class='text-bold grid-data'>{{ winLossTie(t.standing.conferenceWins, t.standing.conferenceLosses, t.standing.conferenceTies)}}</p>
+            <p (click)="teamPageWithData(t.Name)" class="text-bold point">{{teamMascot(t.Name)}}</p>
+            <p class='text-bold grid-data'>{{t.Wins}}</p>
+            <p class='text-bold grid-data'>{{t.Losses}}</p>
+            <p class='text-bold grid-data'>{{t.Ties}}</p>
+            <p class='text-bold grid-data'>{{ winLossTie(t.DivisionWins, t.DivisionLosses, t.DivisionTies)}}</p>
+            <p class='text-bold grid-data'>{{ winLossTie(t.ConferenceWins, t.ConferenceLosses, t.ConferenceTies)}}</p>
         </ng-container>
     </div>
 </div>
