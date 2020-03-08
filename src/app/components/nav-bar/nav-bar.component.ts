@@ -22,7 +22,6 @@ export class NavBarComponent implements OnInit {
     const alph = teamData.sort((a, b) => {
       return a.name.localeCompare(b.name);
     });
-    
     this.teams = alph
   }
 }

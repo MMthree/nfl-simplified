@@ -15,7 +15,7 @@ export class HttpService {
   }
 
   getTeams() {
-    return this.http.get(`https://feeds.nfl.com/feeds-rs/teams.json`)
+    return this.http.get(`https://api.sportsdata.io/v3/nfl/scores/json/Teams?key=defda8911b1243f2909ed00328744c5d`)
   }
 
   getCoachByTeam(teamId:string) {
@@ -27,6 +27,6 @@ export class HttpService {
     const zone = moment.tz.guess();
     const abbr = moment.tz(zone).format('z');
     
-    return this.http.get(`https://feeds.nfl.com/feeds-rs/scores/byTeam/${team}/2019.json?tz=${abbr}`)
+    return this.http.get(`https://api.sportsdata.io/v3/nfl/scores/json/Scores/2019?key=defda8911b1243f2909ed00328744c5d`)
   }
 }

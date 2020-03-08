@@ -13,6 +13,7 @@ import teamJson from '../../../assets/teamData/teams.json';
 export class TeamsComponent implements OnInit {
 
   teamName:String = ''
+  teamAbbr
   teamData
   coach
   teamId:String = ''
@@ -38,9 +39,8 @@ export class TeamsComponent implements OnInit {
         this.loading = true
 
         this.teamName = p.teamId
-        this.getTeam(p.teamId);
+        this.getTeam(this.teamId);
         this.getSchedule(this.teamId)
-        this.getScoresForWinLoss(p.teamId)
 
         this.loading = false
       } else {
@@ -53,20 +53,19 @@ export class TeamsComponent implements OnInit {
     const match = teamJson.find(t => t.name === param);
 
     if (match) {
-      this.teamId = match[param].abbr;
+      this.teamId = match.name;
+      this.teamAbbr = match[param].abbr
       return true
     } else {
       return false
     }
   }
 
-  getTeam(team:string) {
-    this.http.getTeams().subscribe(data => {
-      let d
-      d = data;
-      let t = d.teams.find(t => t.nick.toLowerCase() === team.toLowerCase())
+  getTeam(team) {
+    this.http.getTeams().subscribe((data:any) => {
+      let t = data.find(t => t.Name.toLowerCase() === team)
       this.teamData = t;
-      this.getCoach(t.teamId)
+      //this.getCoach(t.teamId)
     })
   }
 
@@ -77,27 +76,28 @@ export class TeamsComponent implements OnInit {
   }
   
   getSchedule(team) {
-    this.http.getScheduleByTeamAndYear(team).subscribe(data => {
+    this.http.getScheduleByTeamAndYear(team).subscribe((data:any) => {
 
-      const REG = data['gameScores'].filter(t => t.gameSchedule.seasonType === "REG");
+      const schedule = data.filter(game => game.AwayTeam === this.teamAbbr || game.HomeTeam === this.teamAbbr);
 
       const weeks = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16];
       const bye = [];
 
-      REG.forEach((s, i) => {
-        if (s.gameSchedule.week !== weeks[i]) {
+      schedule.forEach((s, i) => {
+        if (s.Week !== weeks[i]) {
           bye.push(weeks[i])
         }
       })
 
-      REG.splice(bye[0] - 1, 0, { gameSchedule: {week: "BYE", weekNum: bye[0]} })
+      schedule.splice(bye[0] - 1, 0, { Week: "BYE", weekNum: bye[0] })
 
-      this.schedule = REG;
+      this.schedule = schedule;
       this.byeWeek = bye[0];
     })
   }
 
   getScoresForWinLoss(name) {
+    console.log(name)
     this.http.getStandings("2019", "REG").subscribe((data:any) => {
       const team = data.teamStandings.find(t => t.team.nick.toLowerCase() === name)
 

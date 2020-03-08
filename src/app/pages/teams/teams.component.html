@@ -6,29 +6,28 @@
     <ng-container *ngIf="teamData">
     <div class="team-header">
 
-        <img src="assets/images/logos/teams/dark/{{teamData.abbr}}.svg" alt="{{teamData.abbr}}" />
+        <img src="assets/images/logos/teams/dark/{{teamData.Key}}.svg" alt="{{teamData.Key}}" />
 
         <p class="team-title">
-            {{teamData.fullName}}
+            {{teamData.FullName}}
         </p>
 
-        <p class='team-established'>Est. {{teamData.yearFound}}</p>
+        <!-- <p class='team-established'>Est. {{teamData.yearFound}}</p> -->
 
         <div class="team-details-container">
             <p> 
                 <i class="material-icons">
                     face
                 </i> 
-                <ng-container *ngIf="coach">
-                    {{coach.displayName}}
-                </ng-container>
+                
+                {{teamData.HeadCoach}}
                 
             </p>
             <p>
                 <i class="material-icons">
                     home
                 </i>
-                {{teamData.stadiumName}}
+                {{teamData.StadiumDetails.Name}}
             </p>
         </div>
     </div>
@@ -38,8 +37,8 @@
             <div class="schedule-title">
                 <p class="year">{{teamData.season}}</p>
                 <p class="schedule">Schedule</p>
-                <p class="wl-title">W-L-T</p>
-                <p class="win-loss-record">{{winLossRecord}}</p>
+                <!-- <p class="wl-title">W-L-T</p>
+                <p class="win-loss-record">{{winLossRecord}}</p> -->
             </div>
 
             <ng-container *ngIf="teamData && teamData.abbr">
@@ -49,7 +48,7 @@
             <ng-container *ngIf="schedule && schedule.length >= 1">
                 <app-schedule-item *ngFor="let data of schedule"
                     [game]="data"
-                    [teams]="data.gameSchedule"
+                    [teams]="data"
                     [scores]="data.score"
                 >    
                 </app-schedule-item>

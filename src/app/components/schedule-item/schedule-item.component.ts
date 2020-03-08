@@ -16,6 +16,7 @@ export class ScheduleItemComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    
   }
 
   formatDateAndTime(iso) {
