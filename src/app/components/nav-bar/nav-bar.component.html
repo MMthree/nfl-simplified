@@ -32,11 +32,11 @@
         <div 
           class="expanded-link" 
           *ngFor="let t of teams" 
-          [routerLink]="['/team', t.name]"
+          [routerLink]="['/team', lowercaseNoSpace(t.name)]"
           (click)="sidenav.close()"
         >
-          <img src="assets/images/logos/teams/dark/{{t[t.name].abbr}}.svg" alt="{{t.name}}"/>
-          <p>{{t[t.name].nick}}</p>
+          <img src="assets/images/logos/teams/dark/{{t.abbr}}.svg" alt="{{t.name}}"/>
+          <p class="teamname">{{t.name}}</p>
         </div>
       </ng-container>
      
