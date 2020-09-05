@@ -24,4 +24,8 @@ export class NavBarComponent implements OnInit {
     });
     this.teams = alph
   }
+
+  lowercaseNoSpace(name) {
+    return name.split(/\s/).join('');
+  }
 }
