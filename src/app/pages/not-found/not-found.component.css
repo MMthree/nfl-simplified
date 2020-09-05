@@ -1,0 +1,16 @@
+.not-found {
+  font-family: 'Roboto Condensed' sans-serif;
+  color: var(--text-dark);
+  text-align: center;
+}
+
+.not-found h1 {
+  font-size: 6rem;
+  margin: 20px 0;
+}
+
+.not-found p {
+  font-size: 1.4rem;
+  font-weight: 500;
+}
+/*# sourceMappingURL=not-found.component.css.map */

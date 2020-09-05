@@ -12,10 +12,10 @@
     <div class="logo-container">
         <ng-container *ngFor="let t of team">
             <img 
-                routerLink='/team/{{t.name}}'
+                routerLink='/team/{{(lowercaseNoSpace(t.name))}}'
                 height="50px" 
-                src="assets/images/logos/teams/dark/{{t[t.name].abbr}}.svg" 
-                alt="{{t[t.name].abbr}}"
+                src="assets/images/logos/teams/dark/{{t.abbr}}.svg" 
+                alt="{{t.abbr}}"
             />
         </ng-container>
     </div>

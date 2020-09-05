@@ -25,6 +25,7 @@
         display: flex;
         justify-content: space-evenly;
         align-items: center;
+        margin-top: 20px;
 
         p {
             color: var(--text-dark);
@@ -78,3 +79,35 @@
     grid-template-columns: 1fr;
     justify-content: center;
 }
+
+.season-selector {
+    font-family: 'Roboto Condensed', sans-serif;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  
+  .season-selector select {
+    cursor: pointer;
+    margin: 10px;
+    padding: 5px;
+    background-color: var(--background);
+    border: 1px solid var(--text-dark);
+    border-radius: 2px;
+    font-size: .9rem;
+  }
+  
+  .season-selector select:focus {
+    outline: none;
+  }
+  
+  .season-selector select option {
+    border: 1px solid var(--text-dark);
+    background-color: var(--background);
+  }

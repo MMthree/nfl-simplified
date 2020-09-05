@@ -1,0 +1,139 @@
+.item-container {
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: center;
+  padding: 20px 0 0 0;
+  margin: 0;
+  color: var(--text-dark);
+  width: 100%;
+}
+
+.item-container:hover {
+  background-color: white;
+}
+
+.item-container .week {
+  margin: 5px 0;
+  font-size: 1.3rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.item-container .date {
+  margin: 0;
+}
+
+.item-container .score-grid {
+  margin: 10px 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.item-container .score-grid .home-desc, .item-container .score-grid .away-desc {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  justify-self: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+}
+
+.item-container .score-grid .home-desc:focus, .item-container .score-grid .away-desc:focus {
+  outline: none;
+}
+
+@media screen and (max-width: 650px) {
+  .item-container .score-grid .home-desc, .item-container .score-grid .away-desc {
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+}
+
+.item-container .score-grid .home-desc .team-name, .item-container .score-grid .away-desc .team-name {
+  margin: 0 5px;
+  font-size: 1.2rem;
+}
+
+.item-container .score-grid .away-desc {
+  justify-self: flex-end;
+}
+
+@media screen and (max-width: 650px) {
+  .item-container .score-grid .away-desc {
+    -ms-grid-column-align: center;
+        justify-self: center;
+  }
+}
+
+.item-container .score-grid .scores-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.item-container .score-grid .scores-container .at-symbol {
+  margin: 0 10px;
+}
+
+.item-container .score-grid .scores-container .team-score {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.item-container .divider {
+  margin: 0 auto;
+  height: 2px;
+  width: 70%;
+  background-color: var(--text-dark);
+}
+
+.team-logo {
+  height: 50px;
+}
+
+.losing-score {
+  color: var(--text-light);
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.winning-score {
+  color: var(--text-dark);
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.game-status {
+  font-weight: 700;
+  margin: 0 0 25px 0;
+}
+
+@media screen and (max-width: 650px) {
+  .team-logo {
+    height: 40px;
+  }
+}
+/*# sourceMappingURL=schedule-item.component.css.map */

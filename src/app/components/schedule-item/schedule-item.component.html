@@ -1,41 +1,59 @@
-<div class="item-container" *ngIf="teams.week === 'BYE'">
+<div class="item-container" *ngIf="teams.Week === 'BYE'">
     <p class="week">week {{teams.weekNum}}</p>
     <h3>BYE</h3>
     <div class="divider"></div>
 </div>
 
-<div class="item-container" *ngIf="teams.week !== 'BYE'">
-    <p class="week">week {{teams.week}}</p>
-    <p class="date">{{formatDateAndTime(teams.isoTime)}}</p>
+<div class="item-container" *ngIf="teams.Week !== 'BYE'">
+    <div class="score-grid">
+        
+            <div class="live-game">
+                <ng-container *ngIf="teams.IsInProgress">
+                    <div class="live-status">
+                        <div class="live-icon"></div>
+                        <p>LIVE</p>
+                    </div>
+                </ng-container>
+            </div>
+
+        <div>
+            <p class="week">week {{teams.Week}}</p>
+        </div>
+
+        <div></div>
+    </div>
+   
+    <p class="date">{{formatDateAndTime(teams.DateTime)}}</p>
+    <p class="channel">{{teams.Channel}}</p>
 
     <div class="score-grid">
-        <div class="away-desc" routerLink="/team/{{teams.visitorNickname.toLowerCase()}}">
-            <img class="team-logo" src="assets/images/logos/teams/dark/{{teams.visitorTeamAbbr}}.svg" alt={{game.visitorDisplayName}} />
-            <p class="team-name">{{teams.visitorNickname}}</p>
+        <div class="away-desc" (click)="navigatePage(teams.AwayTeam)">
+            <img class="team-logo" src="assets/images/logos/teams/dark/{{teams.AwayTeam}}.svg" alt={{game.AwayTeam}} />
+            <p class="team-name">{{teams.AwayTeam}}</p>
         </div>
 
         <div class="scores-container">
             <p 
-                [className]="scoreClass(scores.visitorTeamScore.pointTotal, scores.homeTeamScore.pointTotal) ? 'losing-score' : 'winning-score'"
+                [className]="scoreClass(teams.AwayScore, teams.HomeScore) ? 'losing-score' : 'winning-score'"
             >
-                {{scores.visitorTeamScore.pointTotal}}
+                {{teams.AwayScore}}
             </p>
             <p class="at-symbol">@</p>
             <p 
-                [className]="scoreClass(scores.visitorTeamScore.pointTotal, scores.homeTeamScore.pointTotal) ? 'winning-score' : 'losing-score'"
+                [className]="scoreClass(teams.AwayScore, teams.HomeScore) ? 'winning-score' : 'losing-score'"
             >
-                {{scores.homeTeamScore.pointTotal}}
+                {{teams.HomeScore}}
             </p>
         </div>
         
 
-        <div class="home-desc" routerLink="/team/{{teams.homeNickname.toLowerCase()}}">
-            <img class="team-logo" src="assets/images/logos/teams/dark/{{teams.homeTeamAbbr}}.svg" alt={{game.homeDisplayName}} />
-            <p class="team-name">{{teams.homeNickname}}</p>
+        <div class="home-desc" (click)="navigatePage(teams.HomeTeam)">
+            <img class="team-logo" src="assets/images/logos/teams/dark/{{teams.HomeTeam}}.svg" alt={{teams.HomeTeam}} />
+            <p class="team-name">{{teams.HomeTeam}}</p>
         </div>
     </div>
 
-    <p class='game-status'>{{scores.phaseDescription}}</p>
+    <p class='game-status'>{{teams.QuarterDescription}}</p>
 
     <div class="divider"></div>
 </div>
