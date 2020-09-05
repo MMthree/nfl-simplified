@@ -1,0 +1,26 @@
+.loading-container {
+  display: block;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.loading-container .loading {
+  margin: 40% auto;
+  background-color: #fff;
+  width: 50px;
+  height: 50px;
+  padding: 10px;
+  border-radius: 10000px;
+}
+
+.loading-container .loading ::ng-deep .mat-progress-spinner circle, .loading-container .loading .mat-spinner circle {
+  stroke: var(--text-dark);
+  height: 50px;
+}
+/*# sourceMappingURL=loading.component.css.map */

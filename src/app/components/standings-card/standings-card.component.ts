@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, NavigationExtras } from '@angular/router';
 
+import teamJson from '../../../assets/teamData/teams.json';
+
 @Component({
   selector: 'app-standings-card',
   templateUrl: './standings-card.component.html',
@@ -29,15 +31,14 @@ export class StandingsCardComponent implements OnInit {
     return `${w}-${l}-${t}`
   }
 
-  teamMascot(name) {
-    const teamName = name.split(" ")
-    const mascot = teamName.length === 3 ? teamName[2] : teamName[1];
-    return mascot
+  getTeam(id) {
+    const team = teamJson.find(t => t.team_id === id);
+    return team
   }
 
-  teamPageWithData(name) {
-    const reducedName = this.teamMascot(name);
-    this.router.navigate([`/team/${reducedName.toLowerCase()}`])
+  teamPageWithData(id) {
+    const team = this.getTeam(id);
+    this.router.navigate([`/team/${team.name.toLowerCase().split(/\s/).join('')}`])
   }
 
 }

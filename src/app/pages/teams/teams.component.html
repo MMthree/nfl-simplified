@@ -35,7 +35,13 @@
     <div class="card-grid">
         <div class="card">
             <div class="schedule-title">
-                <p class="year">{{teamData.season}}</p>
+                <div class="season-selector">
+                    <select (change)="yearSelecter($event)" name="year">
+                        <option value="2020">2020</option>
+                        <option value="2019">2019</option>
+                    </select>
+                </div>
+
                 <p class="schedule">Schedule</p>
                 <!-- <p class="wl-title">W-L-T</p>
                 <p class="win-loss-record">{{winLossRecord}}</p> -->

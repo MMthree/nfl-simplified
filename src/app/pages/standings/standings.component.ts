@@ -25,10 +25,8 @@ export class StandingsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.loading = true
     this.getStandings('2019', "REG");
     this.standingsType = this.route.snapshot.paramMap.get("type");
-    this.loading = false
   }
 
   checkUrlParam(param) {
@@ -42,6 +40,7 @@ export class StandingsComponent implements OnInit {
   }
 
   getStandings(year, season) {
+    this.loading = true
     try {
       this.http.getStandings(year, season).subscribe(data => {
 
@@ -54,8 +53,9 @@ export class StandingsComponent implements OnInit {
         }
 
       });
+      this.loading = false;
     } catch (error) {
-      console.log(error.statusText)
+      this.loading = false
     }
   }
 

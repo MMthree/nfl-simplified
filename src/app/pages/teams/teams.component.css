@@ -1,0 +1,96 @@
+.team-header {
+  margin: 48px 0;
+  text-align: center;
+}
+
+.team-header img {
+  height: 120px;
+}
+
+.team-header .team-title {
+  font-family: 'Roboto Slab', serif;
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin: 0;
+  text-transform: uppercase;
+  color: var(--text-dark);
+}
+
+.team-header .team-established {
+  font-family: "Roboto", sans-serif;
+  color: var(--text-dark);
+  font-weight: 500;
+}
+
+.team-header .team-details-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 20px;
+}
+
+.team-header .team-details-container p {
+  color: var(--text-dark);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0;
+}
+
+.team-header .team-details-container .material-icons {
+  margin-right: 5px;
+}
+
+.schedule-title {
+  margin: 10px;
+  font-family: 'Roboto Condensed', sans-serif;
+  text-align: center;
+  color: var(--text-dark);
+}
+
+.schedule-title .year {
+  margin: 0;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.schedule-title .schedule {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+
+.schedule-title .wl-title {
+  margin: 10px 0 0 0;
+  font-size: .9rem;
+  color: var(--text-light);
+}
+
+.schedule-title .win-loss-record {
+  margin: 0 0 10px 0;
+  font-family: "Roboto", sans-serif;
+  color: var(--text-dark);
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
+.card-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+/*# sourceMappingURL=teams.component.css.map */

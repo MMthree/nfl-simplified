@@ -5,11 +5,29 @@
 </div>
 
 <div class="item-container" *ngIf="teams.Week !== 'BYE'">
-    <p class="week">week {{teams.Week}}</p>
+    <div class="score-grid">
+        
+            <div class="live-game">
+                <ng-container *ngIf="teams.IsInProgress">
+                    <div class="live-status">
+                        <div class="live-icon"></div>
+                        <p>LIVE</p>
+                    </div>
+                </ng-container>
+            </div>
+
+        <div>
+            <p class="week">week {{teams.Week}}</p>
+        </div>
+
+        <div></div>
+    </div>
+   
     <p class="date">{{formatDateAndTime(teams.DateTime)}}</p>
+    <p class="channel">{{teams.Channel}}</p>
 
     <div class="score-grid">
-        <div class="away-desc" >
+        <div class="away-desc" (click)="navigatePage(teams.AwayTeam)">
             <img class="team-logo" src="assets/images/logos/teams/dark/{{teams.AwayTeam}}.svg" alt={{game.AwayTeam}} />
             <p class="team-name">{{teams.AwayTeam}}</p>
         </div>
@@ -29,7 +47,7 @@
         </div>
         
 
-        <div class="home-desc" >
+        <div class="home-desc" (click)="navigatePage(teams.HomeTeam)">
             <img class="team-logo" src="assets/images/logos/teams/dark/{{teams.HomeTeam}}.svg" alt={{teams.HomeTeam}} />
             <p class="team-name">{{teams.HomeTeam}}</p>
         </div>

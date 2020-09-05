@@ -21,6 +21,7 @@ export class TeamsComponent implements OnInit {
   byeWeek = ''
   winLossRecord
   loading = false
+  year = "2020"
 
   constructor(
     private router: ActivatedRoute, 
@@ -40,7 +41,7 @@ export class TeamsComponent implements OnInit {
 
         this.teamName = p.teamId
         this.getTeam(this.teamId);
-        this.getSchedule(this.teamId)
+        this.getSchedule(this.teamId, this.year)
 
         this.loading = false
       } else {
@@ -50,7 +51,7 @@ export class TeamsComponent implements OnInit {
   }
 
   checkUrlParam(param) {
-    const match = teamJson.find(t => t.name === param);
+    const match = teamJson.find(t => t.name.toLowerCase().split(/\s/).join('') === param);
 
     if (match) {
       this.teamId = match.name;
@@ -59,6 +60,10 @@ export class TeamsComponent implements OnInit {
     } else {
       return false
     }
+  }
+
+  yearSelecter(e) {
+    this.getSchedule(this.teamId, e.target.value)
   }
 
   getTeam(team) {
@@ -75,8 +80,8 @@ export class TeamsComponent implements OnInit {
     })
   }
   
-  getSchedule(team) {
-    this.http.getScheduleByTeamAndYear(team).subscribe((data:any) => {
+  getSchedule(team, year) {
+    this.http.getScheduleByTeamAndYear(team, year).subscribe((data:any) => {
 
       const schedule = data.filter(game => game.AwayTeam === this.teamAbbr || game.HomeTeam === this.teamAbbr);
 
@@ -90,18 +95,16 @@ export class TeamsComponent implements OnInit {
       })
 
       schedule.splice(bye[0] - 1, 0, { Week: "BYE", weekNum: bye[0] })
-
       this.schedule = schedule;
       this.byeWeek = bye[0];
     })
   }
 
   getScoresForWinLoss(name) {
-    console.log(name)
     this.http.getStandings("2019", "REG").subscribe((data:any) => {
-      const team = data.teamStandings.find(t => t.team.nick.toLowerCase() === name)
-
-      this.winLossRecord = `${team.standing.overallWins}-${team.standing.overallLosses}-${team.standing.overallTies}`
+    const team = data.teamStandings.find(t => t.team.nick.toLowerCase() === name)
+    
+    this.winLossRecord = `${team.standing.overallWins}-${team.standing.overallLosses}-${team.standing.overallTies}`
     })
   }
 }
