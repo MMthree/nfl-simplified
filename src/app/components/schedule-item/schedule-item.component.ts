@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Router } from '@angular/router';
 
-import moment from 'moment';
+import moment from 'moment-timezone';
 import teamData from '../../../assets/teamData/teams.json'
 
 @Component({
@@ -21,7 +21,11 @@ export class ScheduleItemComponent implements OnInit {
   }
 
   formatDateAndTime(iso) {
-    return moment(iso).local().format('dddd, MMM Do h:mm A')
+    const timezone =  moment.tz.guess();
+    const newYork    = moment.tz(iso, "America/New_York");
+    const local = newYork.clone().tz(timezone)
+    
+    return local.format('dddd, MMM Do h:mm A z')
   }
 
   scoreClass(away, home) {
