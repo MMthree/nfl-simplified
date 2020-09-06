@@ -22,7 +22,7 @@ export class ScheduleItemComponent implements OnInit {
 
   formatDateAndTime(iso) {
     const timezone =  moment.tz.guess();
-    const newYork    = moment.tz(iso, "America/New_York");
+    const newYork = moment.tz(iso, "America/New_York");
     const local = newYork.clone().tz(timezone)
     
     return local.format('dddd, MMM Do h:mm A z')
