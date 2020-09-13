@@ -1,0 +1,44 @@
+<ng-container *ngIf="loading">
+    <app-loading></app-loading>
+</ng-container>
+
+<div class="container">
+    <p class="page-title">
+        SCORES
+    </p>
+
+    <div class='season-selector'>
+        <select (change)="yearSelecter($event)" name="year">
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+        </select>
+    </div>
+
+    <h4 class="week-title">WEEK</h4>
+
+    <div class='week-selection'>
+        <button 
+            *ngFor="let w of weeks"
+            name="division"
+            value={{w}}
+            (click)="changeWeek(w)" 
+            [ngClass]="activeWeek === w ? 'active-btn' : 'outline-btn'"
+        >
+            {{w}}
+        </button>
+    </div>
+
+    <div class="card-grid">
+        <div class="card">
+            <ng-container *ngIf="scores && scores.length >= 1">
+                <app-schedule-item *ngFor="let data of scores"
+                    [game]="data"
+                    [teams]="data"
+                    [scores]="data.score"
+                    [showWeek]=false
+                >    
+                </app-schedule-item>
+            </ng-container>
+        </div>
+    </div>
+</div>

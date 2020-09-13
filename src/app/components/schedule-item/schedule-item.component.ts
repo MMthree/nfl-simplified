@@ -14,6 +14,7 @@ export class ScheduleItemComponent implements OnInit {
   @Input() game
   @Input() teams
   @Input() scores
+  @Input() showWeek
 
   constructor(private router: Router) { }
 

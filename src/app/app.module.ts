@@ -19,6 +19,7 @@ import { TeamsComponent } from './pages/teams/teams.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { ScheduleItemComponent } from './components/schedule-item/schedule-item.component';
 import { LoadingComponent } from './loading/loading.component';
+import { ScoresComponent } from './pages/scores/scores.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { LoadingComponent } from './loading/loading.component';
     TeamsComponent,
     NotFoundComponent,
     ScheduleItemComponent,
-    LoadingComponent
+    LoadingComponent,
+    ScoresComponent
   ],
   imports: [
     BrowserModule,

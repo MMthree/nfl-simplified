@@ -10,6 +10,14 @@ export class HttpService {
 
   constructor(private http: HttpClient) { }
 
+  getCurrentWeek () {
+    return this.http.get('https://api.sportsdata.io/v3/nfl/scores/json/CurrentWeek?key=defda8911b1243f2909ed00328744c5d')
+  }
+
+  getScoresByWeek(week:number, season:number) {
+    return this.http.get(`https://api.sportsdata.io/v3/nfl/scores/json/ScoresByWeek/${season}/${week}?key=defda8911b1243f2909ed00328744c5d`)
+  }
+
   getStandings (year:string, type:string) {
       return this.http.get(`https://api.sportsdata.io/v3/nfl/scores/json/Standings/${year}${type}?key=defda8911b1243f2909ed00328744c5d`)
   }

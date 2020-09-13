@@ -118,6 +118,10 @@ mat-sidenav-content {
     }
 }
 
+.border-t {
+    border-top: 1px solid var(--text-dark);
+}
+
 .border-t-b {
     border-top: 1px solid var(--text-dark);
     border-bottom: 1px solid var(--text-dark);

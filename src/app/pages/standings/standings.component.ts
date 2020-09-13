@@ -43,7 +43,6 @@ export class StandingsComponent implements OnInit {
     this.loading = true
     try {
       this.http.getStandings(year, season).subscribe(data => {
-        console.log(data)
 
         const sort = this.sortTeamsByOverallStandings(data);
         this.overallStandings = sort;
