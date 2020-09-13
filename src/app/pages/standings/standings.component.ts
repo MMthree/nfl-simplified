@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ɵCompiler_compileModuleSync__POST_R3__ } from '@angular/core';
 import { HttpService } from '../../http.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
@@ -14,7 +14,7 @@ export class StandingsComponent implements OnInit {
   divisions = []
   conferences = []
   standingsType = ''
-  year = '2019'
+  year = '2020'
   seasonType= 'REG'
   loading = false
 
@@ -25,7 +25,7 @@ export class StandingsComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.getStandings('2019', "REG");
+    this.getStandings(this.year, "REG");
     this.standingsType = this.route.snapshot.paramMap.get("type");
   }
 
@@ -43,6 +43,7 @@ export class StandingsComponent implements OnInit {
     this.loading = true
     try {
       this.http.getStandings(year, season).subscribe(data => {
+        console.log(data)
 
         const sort = this.sortTeamsByOverallStandings(data);
         this.overallStandings = sort;
